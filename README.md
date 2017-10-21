@@ -4,26 +4,13 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Registration form project that I created.
+* Version 1.02
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+ * use this code for learning purpose only
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Repo admin nishanthdev
