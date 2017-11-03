@@ -3,7 +3,7 @@
 $host="localhost";//host name  
 $username="root"; //database username  
 $password="";//database word  
-$db_name="Reg";//database name 
+$db_name="reg";//database name 
 //$host="localhost";//host name  
 //$username="id2701771_nishanthdev"; //database username  
 //$password="1234567";//database word  
