@@ -37,6 +37,12 @@ if (!empty($_POST['cname']))
     if (!empty($_POST["email"])) 
     {
        $email=$_POST['email'];
+       
+       if (!empty($_POST["password"]))
+       {
+          $password =$_POST['password'];
+          $password = password_hash($password, PASSWORD_DEFAULT);
+       }
 
         if (!empty($_POST["caddress"])) 
           {
@@ -57,7 +63,7 @@ if (!empty($_POST['cname']))
                                       if (count($checkbox1) > 5) {
 
  $chk= implode(", ",$checkbox1);
-$sql="insert into college( events, name, email, address, contact, partnum) values('$chk','$name', '$email', '$add', '$cnum', '$pnum')";
+$sql="insert into college( events, name, email, password, address, contact, partnum) values('$chk','$name', '$email', '$password', '$add', '$cnum', '$pnum')";
 
 
 if ($con->multi_query($sql) === TRUE)  
@@ -93,6 +99,10 @@ else
     } else {
         $addrErr = "Please enter address...!";
        }
+
+    } else { 
+      $password_err = "Enter a passcode...!"
+    }
         
     } else {
        $emailErr= "Please enter a email...!";
@@ -101,7 +111,32 @@ else
     } else {
         $nameErr = "Please Enter a name...!";
     }
-  }
+        if(empty($password)){
+      $password_err = 'Please enter password';
+    } elseif(strlen($password < 6)){
+      $password_err = 'Password must be at least 6 characters';
+    }
+    // Validate Confirm password
+    if(empty($confirm_password)){
+      $confirm_password_err = 'Please confirm password';
+    } else {
+      if($password !== $confirm_password){
+        $confirm_password_err = 'Passwords do not match';
+      }
+    }
+  }    if(empty($password)){
+      $password_err = 'Please enter password';
+    } elseif(strlen($password < 6)){
+      $password_err = 'Password must be at least 6 characters';
+    }
+    // Validate Confirm password
+    if(empty($confirm_password)){
+      $confirm_password_err = 'Please confirm password';
+    } else {
+      if($password !== $confirm_password){
+        $confirm_password_err = 'Passwords do not match';
+      }
+    }
 ?>
 
 
@@ -121,7 +156,16 @@ else
       <input class="form-control" type="email" id="email" name="email" placeholder="Enter email address..." required>
       <span class="error"><?php echo $emailErr;?></span>
     </div>
-      
+    <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="form-control form-control-lg <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+              <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+              <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+            </div>  
        <div class="form-group">
         <label>College Address:</label>
     <textarea class="form-control" name="caddress" id="caddress" rows="3" placeholder="Enter college address..." required></textarea>

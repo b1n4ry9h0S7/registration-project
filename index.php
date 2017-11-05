@@ -6,7 +6,7 @@
   require_once './classes/DB.php';
 
   // Validate login<?php
-  // Init session
+  // Init sessiong
   session_start();
 
   // Include db config
@@ -14,7 +14,7 @@
 
   // Validate login
   if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-    header('location: login.php');
+    header('location: Display.php');
     exit;
   }
 ?>

@@ -2,7 +2,7 @@
 <?php
   // Include db config
 include("./classes/DB.php");
-
+include("./classes/navbar.html");
   // Init vars
   $email = $password = '';
   $email_err = $password_err = '';
@@ -60,21 +60,12 @@ include("./classes/DB.php");
     unset($pdo);
   }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <title>Login To Your Account</title>
-</head>
-<body class="bg-primary">
+ <div class="jumbotron">
+  <h1 align="center">Login</h1>
+  <h4 align="center">login here to edit your information...!</h4>
+</div>
+<body>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="card card-body bg-light mt-5">
           <h2>Login</h2>
           <p>Fill in your credentials</p>
           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">   
@@ -93,13 +84,12 @@ include("./classes/DB.php");
                 <input type="submit" value="Login" class="btn btn-success btn-block">
               </div>
               <div class="col">
-                <a href="register.php" class="btn btn-light btn-block">No account? Register</a>
+                <a href="register.php" class="btn btn-primary btn-block">No account? Register</a>
               </div>
             </div>
           </form>
-        </div>
-      </div>
-    </div>
+     </div>
   </div>
 </body>
 </html>
+<?php include("./classes/footer.html"); ?>
